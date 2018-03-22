@@ -1,4 +1,3 @@
-# import json
 import lib.getconfig
 import pika
 
@@ -27,29 +26,3 @@ class ParseInput(object):
         except Exception as err:
             print(err)
             return 500
-
-# def influx(self, rw):
-#     try:
-#         for o in rw.splitlines():
-#             do = o.decode()
-#             x = do.split(' ')
-#             a = x[0].split(',')
-#             c = x[1].split('=')
-#             self.local_vars['metric'] = a[0]
-#             self.local_vars['tags'] = {}
-#             self.local_vars['reaction'] = 0
-#             self.local_vars['type'] = 'None'
-#             self.local_vars['timestamp'] = int(round(int(x[2]) / 1000000000))
-#             self.local_vars[c[0]] = float(c[1].replace('i', ''))
-#
-#             for t in range(1, len(a)):
-#                 b = do.split(' ')[0].split(',')[t].split('=')
-#                 self.local_vars['tags'][b[0]] = b[1]
-#             self.data.append(self.local_vars)
-#             self.local_vars = {}
-#         json_data = barlus_style + json.dumps(self.data)
-#         channel.basic_publish(exchange='',routing_key='OddEye', body=(json_data))
-#         return 204
-#     except Exception as err:
-#         print(err)
-#         return 500
