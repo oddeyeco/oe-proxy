@@ -1,7 +1,4 @@
 import lib.parseinput
-# import lib.getconfig
-
-# datatype = lib.getconfig.getparam('app', 'datatype')
 
 def application(environ, start_response):
     length = int(environ.get('CONTENT_LENGTH', '0'))
