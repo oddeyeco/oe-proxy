@@ -12,17 +12,17 @@ pidfile = lib.getconfig.getparam('daemon', 'pid_file')
 workers = int(lib.getconfig.getparam('daemon', 'threads'))
 
 
-class App(daemon):
+class AppWorker(daemon):
     def run(self):
         try:
-            lib.pushdata.runworker(workers)
+            lib.pushdata.Worker.runworker('Worker', workers)
             lib.daemonlog.print_message('Starting ' + str(workers) + ' consumer threads')
         except Exception as err:
             lib.daemonlog.print_message(str(err))
 
 
 if __name__ == "__main__":
-        daemon = App(pidfile)
+        daemon = AppWorker(pidfile)
         if len(sys.argv) == 2:
             if 'start' == sys.argv[1]:
                     daemon.start()

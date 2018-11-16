@@ -39,10 +39,10 @@ class Worker(threading.Thread):
     def run(self):
         self.channel.start_consuming()
 
-def runworker(wc):
-    try:
-        for a in range(wc):
-            td = Worker()
-            td.start()
-    except Exception as err:
-        lib.daemonlog.print_message(str(err))
+    def runworker(self, wc):
+        try:
+            for a in range(wc):
+                td = Worker()
+                td.start()
+        except Exception as err:
+            lib.daemonlog.print_message(str(err))
