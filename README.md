@@ -1,4 +1,4 @@
-**OddEye Proxy**
+**OddEye Proxy: Not maintained anymore, please use one-go-proxy instead**
 --------------
 
 OddEye Proxy is a small and high performance proxy application that act as moc OddEye API server for agents running in internet restricted environments.  
